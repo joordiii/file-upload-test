@@ -15,7 +15,7 @@ const app = express();
 
 //Connect to databae
 mongoose.Promise=Promise;
-mongoose.connect('process.env.MONGODB_URI');
+mongoose.connect(process.env.MONGODB_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
