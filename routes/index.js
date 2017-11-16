@@ -7,9 +7,16 @@ const multer = require('multer');
 const Picture = require('../models/pictures');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: 'Express'
+router.get('/', (req, res, next)=> {
+  Picture.find({},(err, picture) => {
+    if (err){
+      next (err);
+    } else {
+      const data = {
+        pictures: picture
+      };
+    res.render('index', data);
+    }
   });
 });
 
